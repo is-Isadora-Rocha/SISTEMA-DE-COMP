@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Cadastro de Jogo</title>
+    <h:outputStylesheet library="primefaces-aristo" name="theme.css" />
+</h:head>
+<h:body>
+    <h1>Cadastro de Jogo</h1>
+    <h:form>
+        <p:panel header="Formulário de Cadastro" style="margin-top: 20px;">
+            <h:panelGrid columns="2" cellpadding="5">
+
+                <h:outputLabel for="dataPartida" value="Data da Partida:" />
+                <p:calendar id="dataPartida" value="#{jogoBean.jogo.dataPartida}" required="true" label="Data da Partida" />
+
+                <h:outputLabel for="time1" value="Time 1:" />
+                <p:inputText id="time1" value="#{jogoBean.jogo.time1}" required="true" label="Time 1" />
+
+                <h:outputLabel for="time2" value="Time 2:" />
+                <p:inputText id="time2" value="#{jogoBean.jogo.time2}" required="true" label="Time 2" />
+
+                <h:outputLabel for="campeonato" value="Campeonato:" />
+                <p:inputText id="campeonato" value="#{jogoBean.jogo.campeonato.nome}" required="true" label="Campeonato" />
+
+                <h:outputLabel for="golsTime1" value="Gols Time 1:" />
+                <p:inputText id="golsTime1" value="#{jogoBean.jogo.golsTime1}" required="true" label="Gols Time 1" />
+
+                <h:outputLabel for="golsTime2" value="Gols Time 2:" />
+                <p:inputText id="golsTime2" value="#{jogoBean.jogo.golsTime2}" required="true" label="Gols Time 2" />
+
+                <h:commandButton value="Salvar" action="#{jogoBean.salvar}" />
+            </h:panelGrid>
+
+            <p:messages autoUpdate="true" />
+        </p:panel>
+    </h:form>
+
+    <ul>
+        <li><h:link value="Cadastro de Campeonato" outcome="cadastro_campeonato.xhtml"/></li>
+        <li><h:link value="Listagem de Jogos" outcome="listagem.xhtml"/></li>
+        <!-- Adicione mais links conforme necessário -->
+    </ul>
+</h:body>
+</html>
